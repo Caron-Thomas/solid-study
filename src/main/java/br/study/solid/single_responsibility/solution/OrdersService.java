@@ -32,6 +32,7 @@ public class OrdersService {
             throw new Exception("User not found");
 
         Orders validatedOrder = validateOrder.validateNewOrder(currentUser, order);
+        //Pode add qualquer regra de negócios aqui
         Orders saved = ordersRepository.save(validatedOrder);
         sendEmail.sendConfirmationEmail(saved);
     }
