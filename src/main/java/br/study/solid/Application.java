@@ -32,7 +32,7 @@ public class Application {
 	CommandLineRunner runner() {
 		return args -> {
 			ordersServiceWithLocation.addNewOrderWithLocation(2, new Orders(new Users(), "Fiat Marea 2005"
-					, "Provavelmente vai explodir na sua garagem"
+					, "Um carrro com motor a frente do seu tempo"
 					,null, 670000L));
 		};
 	}

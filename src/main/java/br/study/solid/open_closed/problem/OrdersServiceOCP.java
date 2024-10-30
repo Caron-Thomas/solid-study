@@ -35,7 +35,8 @@ public class OrdersServiceOCP {
         if(currentUser == null )
             throw new Exception("User not found");
 
-        //classe foi alterada para add uma nova validação, funcionalidade
+        //classe foi alterada para add uma nova validação, funcionalidade. Pelo OCP isto não deve acontecer, mas sim a
+        // extensão da classe
         Location local = new Location();
         if(local.getLocal() == null)
             throw new Exception("Location not found");
