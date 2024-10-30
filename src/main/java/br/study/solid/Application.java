@@ -1,6 +1,7 @@
 package br.study.solid;
 
 import br.study.solid.entity.Orders;
+import br.study.solid.open_closed.solution.OrdersServiceWithLocation;
 import br.study.solid.single_responsibility.problem.ProcessOrders;
 import br.study.solid.entity.Users;
 import br.study.solid.single_responsibility.solution.OrdersService;
@@ -15,11 +16,13 @@ import java.text.SimpleDateFormat;
 public class Application {
 
 	//private final ProcessOrders processOrders;
-	private final OrdersService ordersService;
+	//private final OrdersService ordersService;
+	private final OrdersServiceWithLocation ordersServiceWithLocation;
 
-    public Application(OrdersService ordersService) {
-        this.ordersService = ordersService;
-    }
+	public Application(OrdersServiceWithLocation ordersServiceWithLocation) {
+		this.ordersServiceWithLocation = ordersServiceWithLocation;
+	}
+
 
     public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -28,8 +31,9 @@ public class Application {
 	@Bean
 	CommandLineRunner runner() {
 		return args -> {
-			ordersService.addNewOrder(2, new Orders(new Users(), "Fan Arno T2000", "O vento de furacão produzido na sua sala de estar"
-					,null, 22267L));
+			ordersServiceWithLocation.addNewOrderWithLocation(2, new Orders(new Users(), "Fiat Marea 2005"
+					, "Provavelmente vai explodir na sua garagem"
+					,null, 670000L));
 		};
 	}
 
